@@ -2,12 +2,10 @@ import Link from 'next/link';
 
 export default function NavBar() {
   return (<div>
-    <nav className="flex gap-6  p-5 text-white ">
+    <nav className="flex gap-6  p-5  ">
       <MenuItem name='Home' href='/'/>
       <MenuItem name='About Me' href='/about_me'/>
-      <MenuItem name='My Projects' href='/projects'/>
-      {/*<MenuItem name='My Gallery' href='/gallery'/>*/}
-      <MenuItem name='Contact Me' href='/contact_me'/>
+      <MenuItem name='My Blog' href='/blog'/>
     </nav>
   </div>
     
