@@ -42,7 +42,7 @@ export default async function BlogPage({
 
                     </div>
                 </header>
-                <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+                <div dangerouslySetInnerHTML={{ __html: contentHtml }} className="[&_ul]:list-disc [&_ol]:list-decimal [&_li]:ml-6"/>
                 <h2 className="text-2xl text-secondary-foreground font-semibold">Comments</h2>
                 <div className="flex flex-col gap-2">
                     

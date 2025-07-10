@@ -3,6 +3,8 @@ import { blogArticleTable } from "@/db/schema"
 import { db } from "@/db"
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+ 
+
 
 export const getBlogs=async ()=>{
  
@@ -30,25 +32,45 @@ export const getBlogSlug=async (slug:string)=>{
 }
 
 
+function makeid(length:number) {
+    let result           = '';
+    const characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+console.log(makeid(5));
+
 export const addBlog=async (
   formData:FormData,
 
 )=>{
+
   const title = formData.get('title') as string;
-  const articleSlug = formData.get('articleSlug') as string;
+  let articleSlug = formData.get('articleSlug') as string;
   const content = formData.get('content') as string;
-  const description = formData.get('content') as string;
-  const readMinutes = parseInt(formData.get('readMinutes') as string, 10);
+  const description = formData.get('description') as string;
+  let readMinutes = parseInt(formData.get('readMinutes') as string, 10);
 
-
-
+  console.log(title)
+  if (!articleSlug){
+    articleSlug=`blog-${readMinutes}-${title[2]}-${makeid(5)}`
+  }
+  if (!readMinutes){
+    readMinutes=1
+  }
+ 
   if (!content || !articleSlug || !content) return;
-  await db.insert(blogArticleTable).values({
+  { await db.insert(blogArticleTable).values({
     title:title,
     slug:articleSlug,
     content:content,
     description:description,
     readMinutes:readMinutes
-  })
+  })}
+
 
 }
