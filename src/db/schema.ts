@@ -18,7 +18,7 @@ export const blogArticleTable = pgTable("blog_article", {
 
 export const articleCommentsTable = pgTable("blog_comments", {
   id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
-  articleId:integer('article_id').notNull().references(()=>blogArticleTable.id),
+  articleId:integer('article_id').notNull().references(()=>blogArticleTable.id, {onDelete: 'cascade'}),
   author: varchar("author",{ length: 255 }).notNull(),
   content:text("comment_content").notNull(),
   publishedAt:timestamp("published_at").notNull().defaultNow(),

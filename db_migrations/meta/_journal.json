@@ -15,6 +15,13 @@
       "when": 1752084491786,
       "tag": "0001_open_bill_hollister",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752137390014,
+      "tag": "0002_organic_korath",
+      "breakpoints": true
     }
   ]
 }

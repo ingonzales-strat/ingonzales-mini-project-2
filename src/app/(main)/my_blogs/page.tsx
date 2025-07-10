@@ -1,6 +1,6 @@
 
 
-import { PublishButton, UnPublishButton } from "@/components/buttons";
+import { DeleteButton, PublishButton, UnPublishButton } from "@/components/server_buttons";
 import { Button } from "@/components/ui/button";
 import { getBlogs  } from "@/lib/s_actions/blog-actions";
 import Link from "next/link";
@@ -34,13 +34,14 @@ export default async function Home() {
               <td>{blog.title} </td>
               <td>{blog.publishedAt.toISOString()} - {blog.updatedAt.toISOString()}</td>
               <td>{blog.isPublished.toString()}</td>
-              <td className="flex flex-row gap-5"> 
+              <td className="flex flex-row gap-3"> 
                 <Button>
-                  <Link href={`/blog/${blog.slug}`}>Go to Blog</Link>
+                  <Link href={`/blog/${blog.slug}`}>Open</Link>
                 </Button>
                 <Button>
                   Edit
                 </Button>
+                <DeleteButton articleId={blog.id}/>
                 {blog.isPublished ? 
                   <UnPublishButton articleId={blog.id}/>
                   :

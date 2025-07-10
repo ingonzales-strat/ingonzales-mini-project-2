@@ -72,5 +72,12 @@ export const addBlog=async (
     readMinutes:readMinutes
   })}
 
+  
 
 }
+
+export const deleteBlog=async (id:number)=>{
+    await  db.delete(blogArticleTable).where(eq(blogArticleTable.id,id));
+    revalidatePath(`/my_blogs`);
+}
+ 
