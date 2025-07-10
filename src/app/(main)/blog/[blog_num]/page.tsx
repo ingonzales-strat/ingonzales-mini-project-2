@@ -4,7 +4,7 @@
 import "dotenv/config"
 import { getBlogSlug } from "@/lib/s_actions/blog-actions";
 import { getBlogComments } from "@/lib/s_actions/comment-actions";
-import CommentForm from "@/components/comment_form";
+import CommentForm from "@/components/forms/comment_form";
 
 
 export default async function BlogPage({
