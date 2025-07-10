@@ -4,11 +4,13 @@ import { integer, pgTable, varchar,text,timestamp,boolean,jsonb } from "drizzle-
 export const blogArticleTable = pgTable("blog_article", {
   id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
   title: varchar({ length: 255 }).notNull(),
+  description:text("description").default("Read this blog post"),
   slug: varchar({ length: 50 }).notNull().unique(),
   content:text("blog_content").notNull(),
   isPublished:boolean("is_published").notNull().default(false),
   publishedAt:timestamp("published_at").notNull().defaultNow(),
   updatedAt:timestamp("updated_at").notNull().defaultNow(),
+
   readMinutes:integer("read_minutes"),
   likes:integer("likes").default(0),
   metadata: jsonb('metadata'),

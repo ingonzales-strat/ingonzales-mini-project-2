@@ -1,0 +1,1 @@
+ALTER TABLE "blog_article" ADD COLUMN "description" text DEFAULT 'Read this blog post';
