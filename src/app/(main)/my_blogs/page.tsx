@@ -14,6 +14,9 @@ export default async function Home() {
         <h2 className="text-secondary-foreground">Here&apos;s your stuff</h2>
       </header>
       <main>
+        <Button variant={"outline"} size="sm" >
+          <Link href='/my_blogs/new_blog'> New Blog</Link>
+        </Button>
         <table className="table-auto border-separate  border-spacing-5 border  items-center">
           <thead>
             <tr className="border-b border-blue-500">      
@@ -31,9 +34,12 @@ export default async function Home() {
               <td>{blog.title} </td>
               <td>{blog.publishedAt.toISOString()} - {blog.updatedAt.toISOString()}</td>
               <td>{blog.isPublished.toString()}</td>
-              <td> 
+              <td className="flex flex-row gap-5"> 
                 <Button>
                   <Link href={`/blog/${blog.slug}`}>Go to Blog</Link>
+                </Button>
+                <Button>
+                  Edit
                 </Button>
                 {blog.isPublished ? 
                   <UnPublishButton articleId={blog.id}/>
