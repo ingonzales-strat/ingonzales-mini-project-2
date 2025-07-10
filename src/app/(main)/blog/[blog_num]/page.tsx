@@ -22,7 +22,6 @@ export default async function BlogPage({
         .use(html)
         .process(blog_data.content);
      const contentHtml = processedContent.toString();
-    console.log(contentHtml)
 
 
     return <div className="flex flex-col items-center px-4 sm:px-8 md:px-20 lg:px-40 min-h-screen gap-8 font-[family-name:var(--font-geist-sans)]">

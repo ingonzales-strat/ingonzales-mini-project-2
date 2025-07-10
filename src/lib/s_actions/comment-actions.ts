@@ -31,10 +31,7 @@ export const addCommentS=async (
   const author = formData.get('author') as string;
   const articleSlug = formData.get('articleSlug') as string;
   const articleId = parseInt(formData.get('articleId') as string, 10);
-  console.log(content);
-  console.log(author);
-  console.log(articleSlug);
-  console.log(articleId);
+ 
 
 
   if (!content || !author || !articleId) return;
