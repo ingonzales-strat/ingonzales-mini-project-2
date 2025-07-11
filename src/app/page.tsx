@@ -6,14 +6,15 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       
-      <main className="flex flex-col gap-[24px] row-start-2  justify-items-center ">
+      <main className="flex flex-col gap-[24px] row-start-2  ">
         <div>
-          <h1 className="text-foreground">Welcome to my Blog</h1>
-          <div className="w-[28ch] whitespace-nowrap overflow-hidden md:text-xl lg:text-2xl">
+          <h1 className="text-foreground text-4xl md:text-5xl">Welcome to <span className="text-blue-700">Noto ✎ᝰ.</span></h1>
+        
+          <div className="w-[28ch] whitespace-nowrap  overflow-hidden text-base md:text-xl lg:text-2xl">
             <CustomTypewriter />
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="flex md:justify-center">
           <NavBar/>
         </div>
         

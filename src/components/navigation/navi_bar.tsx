@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function NavBar() {
   return (<div>
-    <nav className="flex gap-6  p-5  ">
+    <nav className="flex flex-col md:flex-row items-justify gap-3 md:gap-6 ">
       <MenuItem name='Home' href='/'/>
       <MenuItem2 name='About Me' href='https://my-portfolio-website-delta-snowy.vercel.app/'/>
       <MenuItem name='My Blog' href='/blog'/>
