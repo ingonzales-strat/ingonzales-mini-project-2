@@ -1,4 +1,4 @@
-import BlogForm from "@/components/forms/new_blog_form";
+import BlogForm from "@/components/forms/blog_forms";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

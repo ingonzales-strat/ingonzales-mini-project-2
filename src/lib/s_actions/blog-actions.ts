@@ -44,6 +44,7 @@ function makeid(length:number) {
 
 
 export const addBlog=async (
+  prevState: unknown,
   formData:FormData,
 
 )=>{
@@ -54,26 +55,63 @@ export const addBlog=async (
   const description = formData.get('description') as string;
   let readMinutes = parseInt(formData.get('readMinutes') as string, 10);
 
-  console.log(title)
   if (!articleSlug){
     articleSlug=`blog-${readMinutes}-${title[2]}-${makeid(5)}`
   }
   if (!readMinutes){
     readMinutes=1
   }
- 
-  if (!content || !articleSlug || !content) return;
-  { await db.insert(blogArticleTable).values({
+  console.log(title)
+  if (!title||!content || !articleSlug ) return { success: false, message: 'Missing fields' };
+  
+  await db.insert(blogArticleTable).values({
     title:title,
     slug:articleSlug,
     content:content,
     description:description,
     readMinutes:readMinutes
-  })}
+  })
 
-  
+  return { success: true }
 
 }
+
+export const updateBlog=async (
+   prevState: unknown,
+  formData:FormData,
+
+)=>{
+
+  const utitle = formData.get('title') as string;
+  let uarticleSlug = formData.get('articleSlug') as string;
+  const ucontent = formData.get('content') as string;
+  const id = parseInt(formData.get('id') as string, 10);
+  const udescription = formData.get('description') as string;
+  let ureadMinutes = parseInt(formData.get('readMinutes') as string, 10);
+
+
+  if (!uarticleSlug){
+    uarticleSlug=`blog-${ureadMinutes}-${utitle[2]}-${makeid(5)}`
+  }
+  if (ureadMinutes <= 0) ureadMinutes = 1
+ 
+  if (!utitle || !uarticleSlug || !ucontent) return { success: false, message: 'Missing fields' };
+  await db.update(blogArticleTable)
+  .set({
+    title:utitle,
+    slug:uarticleSlug,
+    description:udescription,
+    content:ucontent,
+    readMinutes:ureadMinutes,
+    updatedAt:sql`now()`
+  }).where(eq(blogArticleTable.id,id));
+  
+  return { success: true }
+
+}
+
+
+
 
 export const deleteBlog=async (id:number)=>{
     await  db.delete(blogArticleTable).where(eq(blogArticleTable.id,id));
