@@ -2,8 +2,14 @@
 
 import BlogBox from "@/components/blog_box";
 import {  getPublishedBlogs } from "@/lib/s_actions/blog-actions";
+import { Metadata } from "next";
 
-export default async function Home() {
+export const metadata: Metadata = {
+  title: "Blog Stream",
+  description:"So many thoughts and ideas."
+};
+
+export default async function BlogsPage() {
   const data = await getPublishedBlogs();
   
   return (

@@ -1,8 +1,12 @@
-
-
 import BlogForm from "@/components/forms/new_blog_form";
+import { Metadata } from "next";
 
-export default async function Home() {
+export const metadata: Metadata = {
+  title: "Writing something new",
+  description:"A new blog. A new idea. A new beginning"
+};
+
+export default async function NewBlogPage() {
   
 
 
