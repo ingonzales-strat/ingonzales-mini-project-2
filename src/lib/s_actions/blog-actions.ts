@@ -1,7 +1,7 @@
 'use server';
 import { blogArticleTable } from "@/db/schema"
 import { db } from "@/db"
-import { eq } from "drizzle-orm";
+import { eq,sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
  
 
@@ -42,7 +42,6 @@ function makeid(length:number) {
     return result;
 }
 
-console.log(makeid(5));
 
 export const addBlog=async (
   formData:FormData,
@@ -80,4 +79,13 @@ export const deleteBlog=async (id:number)=>{
     await  db.delete(blogArticleTable).where(eq(blogArticleTable.id,id));
     revalidatePath(`/my_blogs`);
 }
- 
+
+export const likeBlog=async (id:number,url:string)=>{
+    await  db.update(blogArticleTable).set({likes: sql`${blogArticleTable.likes} + 1`}).where(eq(blogArticleTable.id,id));
+    revalidatePath(url);
+}
+
+export const unLikeBlog=async (id:number,url:string)=>{
+    await  db.update(blogArticleTable).set({likes: sql`${blogArticleTable.likes} - 1`}).where(eq(blogArticleTable.id,id));
+    revalidatePath(url);
+}
