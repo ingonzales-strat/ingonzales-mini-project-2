@@ -12,7 +12,7 @@ export const blogArticleTable = pgTable("blog_article", {
   updatedAt:timestamp("updated_at").notNull().defaultNow(),
 
   readMinutes:integer("read_minutes"),
-  likes:integer("likes").default(0),
+  likes:integer("likes").default(1),
   metadata: jsonb('metadata'),
 });
 
@@ -23,7 +23,7 @@ export const articleCommentsTable = pgTable("blog_comments", {
   content:text("comment_content").notNull(),
   publishedAt:timestamp("published_at").notNull().defaultNow(),
   updatedAt:timestamp("updated_at").notNull().defaultNow(),
-  likes:integer("likes").default(0),
+  likes:integer("likes").default(1),
 });
 
 

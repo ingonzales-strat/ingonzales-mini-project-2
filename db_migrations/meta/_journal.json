@@ -22,6 +22,20 @@
       "when": 1752137390014,
       "tag": "0002_organic_korath",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1752198591929,
+      "tag": "0003_careless_enchantress",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1752198679337,
+      "tag": "0004_hard_major_mapleleaf",
+      "breakpoints": true
     }
   ]
 }

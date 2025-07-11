@@ -1,0 +1,1 @@
+ALTER TABLE "blog_article" ALTER COLUMN "likes" SET DEFAULT 1;

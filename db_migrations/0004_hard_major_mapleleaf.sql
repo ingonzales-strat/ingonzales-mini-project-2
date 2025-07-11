@@ -1,0 +1,1 @@
+ALTER TABLE "blog_comments" ALTER COLUMN "likes" SET DEFAULT 1;
