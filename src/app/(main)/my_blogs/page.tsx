@@ -8,7 +8,7 @@ import { NewBlogButton } from "@/components/ui/blog_button";
 
 
 
-export default async function Home() {
+export default async function MyBlogsPage() {
   const data = await getBlogs();
   return (
     <div className="grid grid-rows-[20px_1fr]  p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] ">
@@ -50,7 +50,7 @@ export default async function Home() {
                   <Link href={`/blog/${blog.slug}`}>Open</Link>
                 </Button>
                 <Button>
-                  Edit
+                  <Link href={`/my_blogs/edit/${blog.slug}`}>Edit</Link>
                 </Button>
                 <DeleteButton articleId={blog.id}/>
                 {blog.isPublished ? 
