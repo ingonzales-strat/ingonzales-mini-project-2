@@ -21,7 +21,7 @@ export default async function BlogsPage() {
       <div className="flex flex-col gap-5 sm:px-80">
         
         {data.map((blog) => (
-          <BlogBox key={blog.id} title={blog.title} description={blog.description} readMins={blog.readMinutes} publish={blog.publishedAt} slug={blog.slug}/>
+          <BlogBox key={blog.id} id={blog.id} likes={blog.likes} title={blog.title} description={blog.description} readMins={blog.readMinutes} publish={blog.publishedAt} slug={blog.slug}/>
           
         ))}
        
