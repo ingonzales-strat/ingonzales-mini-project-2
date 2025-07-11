@@ -1,6 +1,6 @@
 
-import CustomTypewriter from "@/components/typewriter";
-import NavBar from "@/components/navi_bar";
+import CustomTypewriter from "@/components/animata/typewriter";
+import NavBar from "@/components/navigation/navi_bar";
 
 export default function Home() {
   return (
