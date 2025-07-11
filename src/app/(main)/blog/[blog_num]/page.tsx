@@ -1,6 +1,4 @@
-
-
-//import { notFound } from 'next/navigation';
+import { notFound } from 'next/navigation'
 import "dotenv/config"
 import { getBlogSlug } from "@/lib/s_actions/blog-actions";
 import { getBlogComments } from "@/lib/s_actions/comment-actions";
@@ -11,6 +9,28 @@ import CommentBox from "@/components/comment_box";
 import ShareButton, { CommentButton, LikeButton } from "@/components/ui/blog_button";
 import { Separator } from "@/components/ui/separator"
 
+export async function generateMetadata({
+    params
+}:{
+    params:Promise<{blog_num:string}>;
+}) {
+  const { blog_num } = await params;
+  const blog_data = await getBlogSlug(blog_num);
+  if (!blog_data) return { title: 'Not Found' }
+
+  return {
+    title: blog_data.title,
+    description: blog_data.description,
+    openGraph: {
+        title: blog_data.title,
+        description: blog_data.description,
+        locale: "en_US",
+        type: "article",
+    },
+  }
+}
+
+
 export default async function BlogPage({
     params
 }:{
@@ -18,12 +38,14 @@ export default async function BlogPage({
 }){
     const { blog_num } = await params;
     const blog_data = await getBlogSlug(blog_num);
+    if (!blog_data) notFound()
     const wasUpdated = blog_data.updatedAt > blog_data.publishedAt;
     const comment_data=await getBlogComments(blog_data.id);
     const processedContent = await remark()
         .use(html)
         .process(blog_data.content);
-     const contentHtml = processedContent.toString();
+    const contentHtml = processedContent.toString();
+    console.log(contentHtml)
  
 
 
@@ -54,7 +76,8 @@ export default async function BlogPage({
                     </div>
                     
                 </header>
-                <div dangerouslySetInnerHTML={{ __html: contentHtml }} className="[&_ul]:list-disc [&_ol]:list-decimal [&_li]:ml-6"/>
+              
+                <div dangerouslySetInnerHTML={{ __html: blog_data.content }} className="[&_ul]:list-disc [&_ol]:list-decimal [&_li]:ml-6 px-10 sm:px-20 md:px-30 lg:px-30 xl:px-90 text-justify"/>
                 <h2 className="text-2xl text-secondary-foreground font-semibold">Comments</h2>
                 <div className="flex flex-col gap-2">
                     
