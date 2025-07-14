@@ -14,7 +14,7 @@ export default function Home() {
             <CustomTypewriter />
           </div>
         </div>
-        <div className="flex md:justify-center">
+        <div className="flex flex-col md:flex-row md:justify-center">
           <NavBar/>
         </div>
         
