@@ -8,7 +8,7 @@ export function PublishButton({ articleId }: { articleId: number}){
  
     await publishBlog(articleId);
     };
-    return <Button onClick={publish}>
+    return <Button aria-label="Publish Blog" onClick={publish}>
                         Publish
                       </Button>
 }
@@ -19,7 +19,7 @@ export function UnPublishButton({ articleId }: { articleId: number}){
         await unPublishBlog(articleId);
         };
 
-    return <Button onClick={unPublish}>
+    return <Button aria-label="Unpublish Blog" onClick={unPublish}>
                     UnPublish
                   </Button>
     
@@ -42,7 +42,7 @@ export function DeleteButton({ articleId }: { articleId: number}){
  
     await deleteBlog(articleId);
     };
-    return <Button onClick={del} className="bg-red-500">
+    return <Button aria-label="Delete Blog" onClick={del} className="bg-red-500">
                         Delete
                       </Button>
 }

@@ -28,7 +28,7 @@ export default function ShareButton({urlSlug}:{urlSlug:string}){
 
 export  function NewBlogButton(){
 
-    return <Button asChild variant="outline" size="sm" className="relative   sm:p-5 overflow-hidden text-primary before:bg-blue-500 before:absolute before:inset-0 hover:text-white transition-colors before:translate-y-[100%] hover:before:translate-y-0 before:transition-transform">
+    return <Button asChild variant="outline" size="sm" className="relative p-7 m-2    overflow-hidden text-primary before:bg-blue-500 before:absolute before:inset-0 hover:text-white transition-colors before:translate-y-[100%] hover:before:translate-y-0 before:transition-transform">
               <Link href='/my_blogs/new_blog'><span className="relative z-10  items-center gap-2 flex text-base sm:text-md md:text-lg">
                 <IconCirclePlus className="scale-100 md:scale-125 md:mr-2"/>New Blog Post
             </span></Link>

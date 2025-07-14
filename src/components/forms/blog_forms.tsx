@@ -95,7 +95,7 @@ export default function BlogForm(){
         </label>
       <TextEditor content={post} onChange={onChangeP}/>
       <input type="hidden" name="content" value={post} required />
-      <button type="submit"  className="cursor-pointer hover:bg-blue-500 transition bg-blue-900 text-white px-4 py-2 mt-5 rounded">
+      <button type="submit"  className=" hover:bg-blue-500 transition bg-blue-900 text-white px-4 py-2 mt-5 rounded">
         Post
       </button>   
     </Form> 

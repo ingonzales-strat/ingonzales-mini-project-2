@@ -30,7 +30,7 @@ export default function CommentForm({ articleId, articleSlug }: { articleId: num
           <p className="mt-3 text-sm/6 text-gray-600">Have something to say?</p>
         </div>
 
-      <button type="submit" className="cursor-pointer hover:bg-blue-500 transition bg-blue-900 text-white px-4 py-2 mt-5 rounded">
+      <button type="submit" className=" hover:bg-blue-500 transition bg-blue-900 text-white px-4 py-2 mt-5 rounded">
         Post
       </button>
 
