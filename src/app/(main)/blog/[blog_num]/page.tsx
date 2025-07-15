@@ -49,12 +49,12 @@ export default async function BlogPage({
  
 
 
-    return <div className="flex flex-col items-center px-4 sm:px-8 md:px-20 lg:px-40 min-h-screen gap-8 font-[family-name:var(--font-geist-sans)]">
-                <header className="text-center max-w-3xl justify-center">
+     return <div className="flex flex-col items-center px-4 sm:px-8 md:px-20 lg:px-30 min-h-screen gap-8 font-[family-name:var(--font-geist-sans)]">
+                <header className="flex flex-col my-2 gap-3 text-center max-w-3xl justify-center">
                     <p className="text-muted-foreground text-sm">
                     Published on {blog_data.publishedAt.toLocaleDateString()} {wasUpdated && (<span> (Updated on {blog_data.updatedAt.toLocaleDateString()})</span>)} | Niko Gonzales
                     </p>
-                    <h1 className="text-6xl font-bold mt-4 text-foreground">
+                    <h1 className="text-4xl sm:text-4xl lg:text-6xl font-bold  text-foreground">
                     {blog_data.title}
                     </h1>
                     <div className="inline-flex  flex-wrap gap-4 py-2 ">
@@ -77,24 +77,28 @@ export default async function BlogPage({
                     
                 </header>
               
-                <div dangerouslySetInnerHTML={{ __html: blog_data.content }} className="[&_ul]:list-disc [&_ol]:list-decimal [&_li]:ml-6 px-10 sm:px-20 md:px-30 lg:px-30 xl:px-90 text-justify"/>
-                <h2 className="text-2xl text-secondary-foreground font-semibold">Comments</h2>
-                <div className="flex flex-col gap-2">
+                <div dangerouslySetInnerHTML={{ __html: blog_data.content }} className="[&_ul]:list-disc [&_ol]:list-decimal [&_li]:ml-6 px-8 sm:px-20 md:px-20 lg:px-30 xl:px-50 text-justify"/>
+               
+                <div className='flex flex-col gap-4 w-auto'>
+                    <h2 className="text-2xl text-secondary-foreground font-semibold">Comments</h2>
+                    <div className="flex flex-col gap-2">
+                        
+                        {comment_data.map((comment) => (
+                            <CommentBox key={comment.id} author={comment.author} content={comment.content} time={comment.publishedAt}/>
+                        ))}
                     
-                    {comment_data.map((comment) => (
-                        <CommentBox key={comment.id} author={comment.author} content={comment.content} time={comment.publishedAt}/>
-                    ))}
+                    </div>
+                    <div className="w-auto my-2 sm:w-sm xl:w-lg" id="comments">
+                        
+                        <h3 className="pb-3">Join in the Conversation</h3>
+                        <CommentForm articleId={blog_data.id} articleSlug={blog_data.slug}/>
+                    </div>
+                </div>
                 
-                </div>
-                <div className="w-md" id="comments">
-                    
-                    <h3 className="pb-3">Join in the Conversation</h3>
-                    <CommentForm articleId={blog_data.id} articleSlug={blog_data.slug}/>
-                </div>
                     
 
                
-                <footer>
+                <footer className='text-center'>
                     © Isaiah Nikolo Gonzales. All Rights Reserved 2025
                 </footer>
             </div>

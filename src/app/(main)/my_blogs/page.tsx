@@ -14,11 +14,11 @@ export default async function MyBlogsPage() {
     <div className="flex flex-col  p-8  gap-3 font-[family-name:var(--font-geist-sans)] ">
       <header >
         <h1 className="texl-5xl md:text-6xl">Are you Niko?</h1>
-        <h2 className="text-secondary-foreground">Here are your posts</h2>
+        <h2 className="text-secondary-foreground text-xl md:text-4xl">Here are your posts</h2>
       </header>
       <div className="mx-auto">
         <div className=" flex flex-col items-center py-3 gap-3">
-          <h2>Thought of Something to write?</h2>
+          <h2 className="text-secondary-foreground text-xl md:text-4xl">Thought of Something to write?</h2>
           <NewBlogButton/>
         </div>
       </div>
