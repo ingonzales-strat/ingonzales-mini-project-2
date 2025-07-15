@@ -23,7 +23,7 @@ export default function TextEditor({content,onChange}:TextEditorProps){
   return (
   <div>
     <MenuBar editor ={editor}/>
-    <EditorContent editor={editor} className="[&_ul]:list-disc [&_ol]:list-decimal [&_li]:ml-6 border rounded-md p-4 "/>
+    <EditorContent editor={editor} className="block max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl [&_ul]:list-disc [&_ol]:list-decimal [&_li]:ml-6 border rounded-md p-4 text-wrap w-full"/>
   </div>
   );
 }
