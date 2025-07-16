@@ -24,13 +24,7 @@ export default function RootLayout({
         
       >
         <div className="flex justify-center md:justify-start " ><NavBar/></div>
-        <>
-          <p className="block sm:hidden md:hidden lg:hidden xl:hidden">xs: &lt;640px</p>
-          <p className="hidden sm:block md:hidden">sm: ≥640px</p>
-          <p className="hidden md:block lg:hidden">md: ≥768px</p>
-          <p className="hidden lg:block xl:hidden">lg: ≥1024px</p>
-          <p className="hidden xl:block">xl: ≥1280px</p>
-        </>
+       
         
 
         {children}
