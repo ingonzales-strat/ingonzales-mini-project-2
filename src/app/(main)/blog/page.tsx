@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 export default async function BlogsPage() {
   const data = await getPublishedBlogs();
+  console.log(data)
   
   return (
     <div className="grid grid-rows-[auto_1fr]  p-8  pb-20 gap-5  font-[family-name:var(--font-geist-sans)]">
