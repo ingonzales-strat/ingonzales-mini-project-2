@@ -22,7 +22,7 @@ export default function BlogForm(){
 
    
         
-    return <Form action={formAction} className='max-w-2xl mx-auto border flex flex-col gap-5 p-5 rounded-md'>
+    return <Form action={formAction} className=' md:min-w-md xl:min-w-xl border flex flex-col gap-5 p-5 rounded-md'>
       <div >
         <label htmlFor="title" className="block text-md font-medium text-gray-900">
           Title
@@ -118,7 +118,7 @@ export  function EditBlogForm({title,id,description,slug,readminutes,contentLoad
       router.push('/my_blogs')
     }
         
-    return <Form action={formAction} className=' mx-auto border flex flex-col gap-5 p-5 rounded-md'>
+    return <Form action={formAction} className=' md:min-w-md xl:min-w-xl border flex flex-col gap-5 p-5 rounded-md'>
       <div >
         <label htmlFor="title" className="block text-md font-medium text-gray-900">
           Title
